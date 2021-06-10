@@ -13,7 +13,7 @@ export function StudentCard ({student}: Props) {
         <Card>
             <Card.Title>{name}</Card.Title>
             <Card.Divider/>
-            <Card.Image source={{uri: 'https://picsum.photos/200/300'}} />
+            <Card.Image source={{uri: 'https://picsum.photos/200/300'}} style={{ width: 250, height: 150, margin : 10 }} />
             <Text style={{marginBottom: 10, marginTop: 10}}> total attendances : {attendance} </Text>
             <Text style={{marginBottom: 10, marginTop: 10}}> total absences :{absence} </Text>
             <Button

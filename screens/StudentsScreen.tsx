@@ -6,10 +6,11 @@ import { StudentCard } from '../components/StudentCard';
 import { Text, View } from '../components/Themed';
 import { Student } from '../types';
 import { Card, ListItem } from 'react-native-elements';
+import { useTypedSelector } from '../hooks/store-hooks';
 
 export function StudentsScreen() {
 
-  const { students } = useSelector((store) => store);
+  const { students } = useTypedSelector((store) => store);
 
   return (
     <View style={styles.container}>

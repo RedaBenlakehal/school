@@ -30,9 +30,8 @@ export function StudentCard ({ student, navigation}: Props) {
             ))}
             <Button
                 onPress={() => navigation.navigate('EditStudentScreen', {student: student})}
-                style={{marginHorizontal: 100, marginTop: 10}}
                 icon={<Icon name='edit' color='#ffffff' />}
-                buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+                buttonStyle={{marginHorizontal: 100, marginTop: 15}}
             />
         </Card>
     )

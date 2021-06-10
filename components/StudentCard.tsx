@@ -2,12 +2,13 @@ import * as React from 'react';
 import { Text } from 'react-native';
 import { Card, Button, Icon, ListItem } from 'react-native-elements';
 import { Avatar } from 'react-native-elements/dist/avatar/Avatar';
-import { Student } from '../types';
+import { Student, StudentsScreensNavigationProp } from '../types';
 interface Props {
     student: Student;
+    navigation: StudentsScreensNavigationProp;
 }
 
-export function StudentCard ({student}: Props) {
+export function StudentCard ({ student, navigation}: Props) {
 
     const { name, attendance, absence, lessons } = student;
     return(
@@ -28,6 +29,7 @@ export function StudentCard ({student}: Props) {
                 </ListItem>
             ))}
             <Button
+                onPress={() => navigation.navigate('EditStudentScreen', {student: student})}
                 style={{marginHorizontal: 100, marginTop: 10}}
                 icon={<Icon name='edit' color='#ffffff' />}
                 buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}

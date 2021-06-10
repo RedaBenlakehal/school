@@ -13,6 +13,7 @@ import useColorScheme from '../hooks/useColorScheme';
 import { BottomTabParamList, HomeParamList, StudentsPramList } from '../types';
 import { HomeScreen } from '../screens/HomeScreen';
 import { StudentsScreen } from '../screens/StudentsScreen';
+import { EditStudentScreen } from '../screens/EditStudentScreen';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -21,20 +22,20 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="Home"
+      initialRouteName='Home'
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
       <BottomTab.Screen
-        name="Home"
+        name='Home'
         component={TabHomeNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name='home' color={color} />,
         }}
       />
       <BottomTab.Screen
-        name="Students"
+        name='Students'
         component={TabStudentsNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name='list' color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -56,7 +57,7 @@ function TabHomeNavigator() {
   return (
     <TabHomeStack.Navigator>
       <TabHomeStack.Screen
-        name="HomeScreen"
+        name='HomeScreen'
         component={HomeScreen}
         options={{ headerTitle: 'Home' }}
       />
@@ -70,9 +71,14 @@ function TabStudentsNavigator() {
   return (
     <TabStudentsStack.Navigator>
       <TabStudentsStack.Screen
-        name="StudentsScreen"
+        name='StudentsScreen'
         component={StudentsScreen}
         options={{ headerTitle: 'Students' }}
+      />
+      <TabStudentsStack.Screen
+        name='EditStudentScreen'
+        component={EditStudentScreen}
+        options={{ headerTitle: 'Edit student' }}
       />
     </TabStudentsStack.Navigator>
   );

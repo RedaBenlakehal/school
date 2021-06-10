@@ -1,15 +1,18 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
-import { useSelector } from 'react-redux';
 import { StudentCard } from '../components/StudentCard';
 
-import { Text, View } from '../components/Themed';
-import { Student, School } from '../types';
-import { Card, ListItem } from 'react-native-elements';
-import { useTypedSelector } from '../hooks/store-hooks';
+import { View } from '../components/Themed';
 import { FlatList } from 'react-native-gesture-handler';
+import { useTypedSelector } from '../hooks/store-hooks';
 
-export function StudentsScreen() {
+import { StudentsScreensNavigationProp } from '../types';
+
+type Props = {
+  navigation: StudentsScreensNavigationProp;
+};
+
+export function StudentsScreen({ navigation }: Props) {
 
   const { students } = useTypedSelector((store) => store);
 
@@ -20,7 +23,7 @@ export function StudentsScreen() {
         keyExtractor={item => item.id}
         renderItem={({ item }) => {
           return (
-              <StudentCard student={item} />
+              <StudentCard student={item} navigation={navigation} />
           );
         }} 
       />

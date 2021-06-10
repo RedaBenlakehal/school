@@ -1,3 +1,5 @@
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RouteProp } from '@react-navigation/core';
 /**
  * Learn more about using TypeScript with React Navigation:
  * https://reactnavigation.org/docs/typescript/
@@ -20,13 +22,16 @@ export type HomeParamList = {
 
 export type StudentsPramList = {
   StudentsScreen: undefined;
-  StudentDetailsScreen: undefined;
+  EditStudentScreen: { student: Student };
 }
 
 export type LessonsParmList = {
   LessonsScreen: undefined;
-  LessonsDetailsScreen: undefined;
 }
+
+export type StudentsScreensNavigationProp = StackNavigationProp<StudentsPramList>;
+export type EditStudentScreenRouteProp = RouteProp<StudentsPramList, 'EditStudentScreen'>;
+
 export interface School {
   students : Student[];
   lessons: Lesson[];

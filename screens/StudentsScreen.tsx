@@ -6,11 +6,12 @@ import { StudentCard } from '../components/StudentCard';
 import { Text, View } from '../components/Themed';
 import { Student, School } from '../types';
 import { Card, ListItem } from 'react-native-elements';
+import { useTypedSelector } from '../hooks/store-hooks';
 import { FlatList } from 'react-native-gesture-handler';
 
 export function StudentsScreen() {
 
-  const { students } = useSelector((store) => store) as School;
+  const { students } = useTypedSelector((store) => store);
 
   return (
     <View style={styles.container}>

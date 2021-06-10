@@ -10,11 +10,15 @@ import { Provider } from 'react-redux'
 import { schoolReducer } from './reducers/school';
 import { createStore } from 'redux';
 
+const store = createStore(schoolReducer);
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
+
 export default function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
-
-  const store = createStore(schoolReducer);
+  
 
   if (!isLoadingComplete) {
     return null;

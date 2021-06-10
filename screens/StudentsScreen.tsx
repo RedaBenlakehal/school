@@ -1,12 +1,19 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux';
+import { StudentCard } from '../components/StudentCard';
 
 import { Text, View } from '../components/Themed';
+import { Student } from '../types';
+import { Card, ListItem } from 'react-native-elements';
 
 export function StudentsScreen() {
+
+  const { students } = useSelector((store) => store);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Students list</Text>
+      {students.map((student: Student) => <StudentCard student={student} />)}
     </View>
   );
 }

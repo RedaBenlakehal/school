@@ -28,9 +28,9 @@ export function StudentCard ({student}: Props) {
                 </ListItem>
             ))}
             <Button
-                icon={<Icon name='code' color='#ffffff' />}
+                style={{marginHorizontal: 100, marginTop: 10}}
+                icon={<Icon name='edit' color='#ffffff' />}
                 buttonStyle={{borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                title='Details' 
             />
         </Card>
     )

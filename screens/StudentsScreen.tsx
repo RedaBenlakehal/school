@@ -4,9 +4,10 @@ import { useSelector } from 'react-redux';
 import { StudentCard } from '../components/StudentCard';
 
 import { Text, View } from '../components/Themed';
-import { Student } from '../types';
+import { Student, School } from '../types';
 import { Card, ListItem } from 'react-native-elements';
 import { useTypedSelector } from '../hooks/store-hooks';
+import { FlatList } from 'react-native-gesture-handler';
 
 export function StudentsScreen() {
 
@@ -14,7 +15,15 @@ export function StudentsScreen() {
 
   return (
     <View style={styles.container}>
-      {students.map((student: Student) => <StudentCard student={student} />)}
+      <FlatList
+        data={students}
+        keyExtractor={item => item.id}
+        renderItem={({ item }) => {
+          return (
+              <StudentCard student={item} />
+          );
+        }} 
+      />
     </View>
   );
 }

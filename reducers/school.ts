@@ -1,6 +1,6 @@
 import { School, StoreAction } from '../types';
 
-const initStore: School = {
+export const initStore: School = {
     students: [
         { 
             id: 1, name: "Alice",
@@ -49,7 +49,7 @@ const initStore: School = {
     ]
 }
 
-export const schoolReducer = (store: School, action: any ) => {
+export const schoolReducer = (store: School = initStore, action: any): School => {
     switch (action.type) {
     
         default:

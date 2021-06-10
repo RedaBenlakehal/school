@@ -49,6 +49,7 @@ export interface Note {
 export interface Lesson {
   id: number;
   title: string;
+  avatar: string
 }
 
 export type StoreAction = undefined; // TODO

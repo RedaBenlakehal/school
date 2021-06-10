@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 import { Text, View } from '../components/Themed';
 import { EditStudentScreenRouteProp } from '../types';
 import { Button, Icon } from 'react-native-elements';
+import { BackgroundImage } from 'react-native-elements/dist/config';
 
 interface Props {
     route: EditStudentScreenRouteProp
@@ -28,7 +29,7 @@ export function EditStudentScreen({route }: Props) {
         <Button
             onPress={() => {}}
             icon={<Icon name='remove' color='#ffffff' />}
-            buttonStyle={{margin: 5}}
+            buttonStyle={{margin: 5, backgroundColor: 'red'}}
         />
       </View>
       <View style={{ flexDirection: "row" }}>
@@ -41,7 +42,7 @@ export function EditStudentScreen({route }: Props) {
         <Button
             onPress={() => {}}
             icon={<Icon name='remove' color='#ffffff' />}
-            buttonStyle={{margin: 5}}
+            buttonStyle={{margin: 5, backgroundColor: 'red'}}
         />
       </View>
       

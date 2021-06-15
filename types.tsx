@@ -34,7 +34,7 @@ export type StudentsScreensNavigationProp = StackNavigationProp<StudentsPramList
 export type EditStudentScreenRouteProp = RouteProp<StudentsPramList, 'EditStudentScreen'>;
 
 export interface School {
-  students : Student[];
+  students : {[key: string]: Student};
   lessons: Lesson[];
 }
 

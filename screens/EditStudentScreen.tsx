@@ -29,7 +29,6 @@ export function EditStudentScreen({route}: Props) {
 
 
   const {absence, attendance, name, id} = student; 
-  console.log({student})
 
   const handleAbsenceValueChange = (value: 1 | -1) => {
       return () => {
@@ -63,6 +62,7 @@ export function EditStudentScreen({route}: Props) {
             buttonStyle={{margin: 5, marginLeft: 20}}
         />
         <Button
+            disabled={absence === 0}
             onPress={handleAbsenceValueChange(-1)}
             icon={<Icon name='remove' color='#ffffff' />}
             buttonStyle={{margin: 5, backgroundColor: 'red'}}
@@ -76,6 +76,7 @@ export function EditStudentScreen({route}: Props) {
             buttonStyle={{margin: 5}}
         />
         <Button
+            disabled={attendance === 0}
             onPress={handleAttendenceChange(-1)}
             icon={<Icon name='remove' color='#ffffff' />}
             buttonStyle={{margin: 5, backgroundColor: 'red'}}

@@ -1,5 +1,6 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/core';
+import { decrementStudentAbsence, decrementStudentAttendence, incrementStudentAbsence, incrementStudentAttendence } from './components/actions';
 /**
  * Learn more about using TypeScript with React Navigation:
  * https://reactnavigation.org/docs/typescript/
@@ -22,7 +23,7 @@ export type HomeParamList = {
 
 export type StudentsPramList = {
   StudentsScreen: undefined;
-  EditStudentScreen: { student: Student };
+  EditStudentScreen: { studentId: number };
 }
 
 export type LessonsParmList = {
@@ -33,7 +34,7 @@ export type StudentsScreensNavigationProp = StackNavigationProp<StudentsPramList
 export type EditStudentScreenRouteProp = RouteProp<StudentsPramList, 'EditStudentScreen'>;
 
 export interface School {
-  students : Student[];
+  students : {[key: string]: Student};
   lessons: Lesson[];
 }
 
@@ -57,4 +58,7 @@ export interface Lesson {
   avatar: string
 }
 
-export type StoreAction = undefined; // TODO
+export type StoreAction = ReturnType<typeof incrementStudentAbsence> 
+| ReturnType<typeof decrementStudentAbsence> 
+| ReturnType<typeof incrementStudentAttendence> 
+| ReturnType<typeof decrementStudentAttendence>; 

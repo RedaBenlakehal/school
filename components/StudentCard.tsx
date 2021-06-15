@@ -10,7 +10,7 @@ interface Props {
 
 export function StudentCard ({ student, navigation}: Props) {
 
-    const { name, attendance, absence, lessons } = student;
+    const { name, attendance, absence, lessons, id } = student;
     return(
         <Card>
             <Card.Title>{name}</Card.Title>
@@ -29,7 +29,7 @@ export function StudentCard ({ student, navigation}: Props) {
                 </ListItem>
             ))}
             <Button
-                onPress={() => navigation.navigate('EditStudentScreen', {student: student})}
+                onPress={() => navigation.navigate('EditStudentScreen', {studentId: id})}
                 icon={<Icon name='edit' color='#ffffff' />}
                 buttonStyle={{marginHorizontal: 100, marginTop: 15}}
             />

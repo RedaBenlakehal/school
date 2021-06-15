@@ -7,6 +7,7 @@ import { FlatList } from 'react-native-gesture-handler';
 import { useTypedSelector } from '../hooks/store-hooks';
 
 import { StudentsScreensNavigationProp } from '../types';
+import { getStudents } from '../selectors';
 
 type Props = {
   navigation: StudentsScreensNavigationProp;
@@ -14,12 +15,12 @@ type Props = {
 
 export function StudentsScreen({ navigation }: Props) {
 
-  const { students } = useTypedSelector((store) => store);
+  const students = useTypedSelector((store) => getStudents(store));
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={students}
+        data={Object.values(students)}
         keyExtractor={item => item.id}
         renderItem={({ item }) => {
           return (

@@ -10,10 +10,11 @@ import * as React from 'react';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import { BottomTabParamList, HomeParamList, StudentsPramList } from '../types';
+import { BottomTabParamList, HomeParamList, StudentsPramList, LessonsParmList } from '../types';
 import { HomeScreen } from '../screens/HomeScreen';
 import { StudentsScreen } from '../screens/StudentsScreen';
 import { EditStudentScreen } from '../screens/EditStudentScreen';
+import { LessonsScreen } from '../screens/LessonsScreen';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -36,6 +37,13 @@ export default function BottomTabNavigator() {
         component={TabStudentsNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name='list' color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name='Lessons'
+        component={TabLessonsNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name='book' color={color} />,
         }}
       />
     </BottomTab.Navigator>
@@ -81,5 +89,19 @@ function TabStudentsNavigator() {
         options={{ headerTitle: 'Edit student' }}
       />
     </TabStudentsStack.Navigator>
+  );
+}
+
+const TabLessonsStack = createStackNavigator<LessonsParmList>();
+
+function TabLessonsNavigator() {
+  return (
+    <TabLessonsStack.Navigator>
+      <TabLessonsStack.Screen
+        name='LessonsScreen'
+        component={LessonsScreen}
+        options={{ headerTitle: 'Lessons' }}
+      />
+    </TabLessonsStack.Navigator>
   );
 }

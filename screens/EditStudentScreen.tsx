@@ -4,7 +4,6 @@ import { StyleSheet } from 'react-native';
 import { Text, View } from '../components/Themed';
 import { EditStudentScreenRouteProp } from '../types';
 import { Button, Icon } from 'react-native-elements';
-import { BackgroundImage } from 'react-native-elements/dist/config';
 
 interface Props {
     route: EditStudentScreenRouteProp
